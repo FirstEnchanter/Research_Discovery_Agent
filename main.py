@@ -1,4 +1,4 @@
-﻿import os
+import os
 import sys
 import json
 import time
@@ -22,7 +22,7 @@ SPREADSHEET_ID = "1xYfHw94_5nk2RC-z0Vvl3hQx8vdgw_zF5usXQj2sWeU"
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 CLIENT = OpenAI(api_key=OPENAI_API_KEY)
 
-# ðŸŒŒ EVALUATION LENSES (DIRECTIVE)
+#  EVALUATION LENSES (DIRECTIVE)
 LENSES = """
 1. Alignment vs Misalignment: Gap between claim and happening.
 2. Structure as a Reflection of Values: What structure reveals about value.
@@ -31,7 +31,7 @@ LENSES = """
 5. Designing for Participation and Trust: Who is included or left out?
 """
 
-# ðŸ›°ï¸ RESEARCH ANCHORS
+#  RESEARCH ANCHORS
 ANCHORS = """
 1. Structural Alignment: Organization, governance, system design.
 2. Human-System Tension: Value vs behavior gaps.
@@ -170,7 +170,7 @@ def evaluate_topic(topic, existing_content):
     return json.loads(response.choices[0].message.content)
 
 def main():
-    log_event("ðŸš€ Starting Research Discovery Cycle...")
+    log_event(" Starting Research Discovery Cycle...")
     
     try:
         sh = get_sheets()
@@ -288,8 +288,7 @@ def main():
         rejected_ws_obj.append_rows(rejected_rows, value_input_option="USER_ENTERED")
         log_event(f"Logged {len(rejected_rows)} rejections.")
 
-    log_event("âœ… Cycle complete (Respecting Manual Formatting).")
+    log_event(" Cycle complete (Respecting Manual Formatting).")
 
 if __name__ == "__main__":
     main()
-
